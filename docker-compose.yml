@@ -1,0 +1,40 @@
+services:
+  mysql:
+    image: mysql:8.4
+    command: ["mysqld", "--default-authentication-plugin=mysql_native_password"]
+    environment:
+      MYSQL_DATABASE: myinvoice
+      MYSQL_USER: myinvoice
+      MYSQL_PASSWORD: myinvoice_password
+      MYSQL_ROOT_PASSWORD: root_password_change_me
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+
+  api:
+    image: node:22
+    working_dir: /app
+    depends_on:
+      - mysql
+    environment:
+      PORT: 3001
+      FRONTEND_ORIGIN: http://localhost:5173
+      JWT_SECRET: change_me_long_random_secret
+      ADMIN_EMAIL: admin@stack.local
+      ADMIN_PASSWORD: change_me_password
+      INVITE_TTL_DAYS: 14
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: myinvoice
+      DB_PASSWORD: myinvoice_password
+      DB_NAME: myinvoice
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./Backend:/app
+    command: ["sh", "-lc", "npm install && npm run dev"]
+
+volumes:
+  mysql_data:

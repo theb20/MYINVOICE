@@ -1,0 +1,46 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend invoice",
+  "license": "ISC",
+  "author": "Frédérick Ahobaut",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "jest",
+    "node": "nodemon server.js"
+  },
+  "dependencies": {
+    "axios": "^1.13.6",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "body-parser": "^2.2.2",
+    "compression": "^1.8.1",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^5.2.1",
+    "express-rate-limit": "^7.5.1",
+    "express-validator": "^7.3.1",
+    "helmet": "^8.1.0",
+    "hpp": "^0.2.3",
+    "joi": "^18.0.2",
+    "jsonwebtoken": "^9.0.3",
+    "morgan": "^1.10.1",
+    "multer": "^2.1.1",
+    "nodemailer": "^7.0.6",
+    "mysql2": "^3.20.0",
+    "sequelize": "^6.37.8",
+    "uuid": "^11.1.0",
+    "xss-clean": "^0.1.4",
+    "zod": "^4.1.5"
+  },
+  "devDependencies": {
+    "eslint": "^10.1.0",
+    "nodemon": "^3.1.14",
+    "prettier": "^3.8.1"
+  }
+}
