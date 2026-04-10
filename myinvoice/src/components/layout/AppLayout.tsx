@@ -1,28 +1,21 @@
-import { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
+import { FileText, Home, Package, PlusCircle, Users } from 'lucide-react'
 
 import { AuthModal } from '@/components/auth/AuthModal'
 
-function NavItem({ to, label }: { to: string; label: string }) {
-  return (
-    <NavLink
-      className={({ isActive }) =>
-        [
-          'rounded-xl px-3 py-2 text-sm font-medium transition',
-          isActive ? 'bg-lime-300 text-neutral-900' : 'text-neutral-700 hover:bg-neutral-100',
-        ].join(' ')
-      }
-      to={to}
-    >
-      {label}
-    </NavLink>
-  )
-}
+const NAV: { to: string; label: string; icon: React.ElementType; exact?: boolean }[] = [
+  { to: '/', label: 'Accueil', icon: Home, exact: true },
+  { to: '/invoice', label: 'Nouvelle facture', icon: PlusCircle },
+  { to: '/invoices', label: 'Factures', icon: FileText },
+  { to: '/clients', label: 'Clients', icon: Users },
+  { to: '/services', label: 'Services', icon: Package },
+]
 
 export function AppLayout() {
   const location = useLocation()
   const [authOpen, setAuthOpen] = useState(false)
-  const hideHeader = useMemo(() => location.pathname === '/invoice', [location.pathname])
+  const isInvoicePage = location.pathname === '/invoice'
 
   useEffect(() => {
     const onExpired = () => {
@@ -34,28 +27,61 @@ export function AppLayout() {
   }, [])
 
   return (
-    <div className="min-h-dvh bg-neutral-50 text-neutral-900">
-      {!hideHeader ? (
-        <div className="app-header border-b border-neutral-200 bg-white/80 backdrop-blur">
-          <div className="mx-auto flex w-full items-center justify-between px-6 py-4">
-            <div className="flex items-center gap-3">
-              <div className="h-8 w-8 rounded-lg bg-lime-200 p-1 object-contain">
-                <img alt="Logo" src="/logo.png" />
-              </div>
-              <span className="text-sm font-semibold tracking-tight">STACK</span>
-            </div>
-            <nav className="flex items-center gap-2">
-              <NavItem label="Home" to="/" />
-              <NavItem label="Facture" to="/invoice" />
-              <NavItem label="Invoices" to="/invoices" />
-              <NavItem label="Services" to="/services" />
-              <NavItem label="Clients" to="/clients" />
-            </nav>
+    <div className="flex min-h-dvh bg-slate-50">
+      {/* Sidebar */}
+      <aside className="app-header fixed inset-y-0 left-0 z-30 flex w-56 flex-col bg-slate-900">
+        {/* Logo */}
+        <div className="flex h-14 shrink-0 items-center gap-2.5 border-b border-slate-800 px-4">
+          <div className="flex h-7 w-7 items-center justify-center rounded-md bg-blue-600 p-1">
+            <img alt="Logo" className="h-full w-full object-contain" src="/logo.png" />
           </div>
+          <span className="text-sm font-semibold tracking-tight text-white">STACK</span>
         </div>
-      ) : null}
 
-      <Outlet />
+        {/* Nav */}
+        <nav className="flex-1 space-y-0.5 overflow-y-auto px-2 py-3">
+          {NAV.map(({ to, label, icon: Icon, exact }) => (
+            <NavLink
+              key={to}
+              end={exact}
+              className={({ isActive }) =>
+                [
+                  'flex items-center gap-2.5 rounded-md px-3 py-2 text-sm font-medium transition',
+                  isActive
+                    ? 'bg-blue-600 text-white'
+                    : 'text-slate-400 hover:bg-slate-800 hover:text-white',
+                ].join(' ')
+              }
+              to={to}
+            >
+              <Icon size={15} strokeWidth={1.75} />
+              {label}
+            </NavLink>
+          ))}
+        </nav>
+
+        {/* Footer */}
+        <div className="shrink-0 border-t border-slate-800 px-4 py-3">
+          <span className="text-xs text-slate-500">myinvoice · v1.0</span>
+        </div>
+      </aside>
+
+      {/* Content */}
+      <div className={['flex-1 transition-all', isInvoicePage ? 'ml-0' : 'ml-56'].join(' ')}>
+        {isInvoicePage ? (
+          /* Top mini-bar on invoice page only */
+          <div className="app-header sticky top-0 z-20 flex h-11 items-center gap-3 border-b border-slate-200 bg-white px-4">
+            <NavLink
+              className="flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-slate-800"
+              to="/invoices"
+            >
+              ← Retour aux factures
+            </NavLink>
+          </div>
+        ) : null}
+        <Outlet />
+      </div>
+
       <AuthModal onClose={() => setAuthOpen(false)} open={authOpen} />
     </div>
   )

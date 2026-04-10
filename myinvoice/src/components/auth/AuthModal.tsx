@@ -40,14 +40,14 @@ export function AuthModal({ open, onClose }: { open: boolean; onClose: () => voi
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-6">
-      <div className="w-full max-w-md rounded-3xl border border-neutral-200 bg-white p-6 shadow-xl">
+      <div className="w-full max-w-md rounded-xl border border-neutral-200 bg-white p-6 shadow-xl">
         <div className="flex items-start justify-between gap-4">
           <div>
             <div className="text-lg font-semibold tracking-tight text-neutral-900">Connexion requise</div>
             <div className="mt-1 text-sm text-neutral-600">Ta session a expiré. Reconnecte-toi pour continuer.</div>
           </div>
           <button
-            className="rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-xs font-medium text-neutral-900 transition hover:bg-neutral-50"
+            className="rounded-lg border border-neutral-200 bg-white px-3 py-2 text-xs font-medium text-neutral-900 transition hover:bg-neutral-50"
             onClick={onClose}
             type="button"
           >
@@ -59,7 +59,7 @@ export function AuthModal({ open, onClose }: { open: boolean; onClose: () => voi
           <div>
             <label className="text-xs font-medium text-neutral-700">Email</label>
             <input
-              className="mt-1 w-full rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400"
+              className="mt-1 w-full rounded-lg border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500"
               onChange={(e) => setEmail(e.target.value)}
               type="email"
               value={email}
@@ -68,7 +68,7 @@ export function AuthModal({ open, onClose }: { open: boolean; onClose: () => voi
           <div>
             <label className="text-xs font-medium text-neutral-700">Mot de passe</label>
             <input
-              className="mt-1 w-full rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400"
+              className="mt-1 w-full rounded-lg border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500"
               onChange={(e) => setPassword(e.target.value)}
               type="password"
               value={password}
@@ -78,7 +78,7 @@ export function AuthModal({ open, onClose }: { open: boolean; onClose: () => voi
           {error ? <div className="text-sm text-red-600">{error}</div> : null}
 
           <button
-            className="rounded-2xl bg-neutral-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-neutral-800 disabled:opacity-50"
+            className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-50"
             disabled={loading || !email || password.length < 8}
             onClick={login}
             type="button"

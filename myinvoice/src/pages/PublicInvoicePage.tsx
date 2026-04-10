@@ -172,7 +172,7 @@ export function PublicInvoicePage() {
         <h1 className="text-2xl font-semibold tracking-tight text-neutral-900">Facture</h1>
         <p className="mt-2 text-neutral-600">Consultation sécurisée.</p>
       </header>
-      {error ? <div className="rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">{error}</div> : null}
+      {error ? <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">{error}</div> : null}
       {draft ? <InvoicePreview draft={draft} /> : null}
     </main>
   )

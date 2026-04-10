@@ -47,7 +47,7 @@ function statusLabel(status: string) {
 function statusCls(status: string) {
   if (status === 'paid') return 'bg-emerald-100 text-emerald-900'
   if (status === 'pending') return 'bg-amber-100 text-amber-900'
-  return 'bg-neutral-100 text-neutral-700'
+  return 'bg-slate-100 text-slate-700'
 }
 
 function asRecord(v: unknown): Record<string, unknown> {
@@ -251,42 +251,42 @@ export function InvoicesPage() {
   }
 
   return (
-    <main className="mx-auto flex min-h-dvh w-full max-w-6xl flex-col gap-6 px-6 py-14">
-      <header className="flex flex-wrap items-end justify-between gap-4">
+    <main className="mx-auto flex min-h-dvh w-full max-w-6xl flex-col gap-5 px-6 py-8">
+      <header className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-5">
         <div>
-          <h1 className="text-3xl font-semibold tracking-tight text-neutral-900">Invoices</h1>
-          <p className="mt-2 text-neutral-600">Factures, devis, avoirs, statuts, actions rapides.</p>
+          <h1 className="text-xl font-semibold tracking-tight text-slate-900">Factures</h1>
+          <p className="mt-0.5 text-sm text-slate-400">Factures, devis, avoirs, acomptes.</p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
           <input
-            className="w-72 rounded-2xl border border-neutral-200 bg-white px-4 py-2 text-sm outline-none focus:border-lime-400"
+            className="w-72 rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm outline-none focus:border-blue-500"
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Rechercher n°, client, email…"
             value={query}
           />
-          <select className="rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400" onChange={(e) => setFilterType(e.target.value as any)} value={filterType}>
+          <select className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500" onChange={(e) => setFilterType(e.target.value as any)} value={filterType}>
             <option value="all">Tous types</option>
             <option value="invoice">Facture</option>
             <option value="quote">Devis</option>
             <option value="credit_note">Avoir</option>
             <option value="deposit">Acompte</option>
           </select>
-          <select className="rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400" onChange={(e) => setFilterStatus(e.target.value as any)} value={filterStatus}>
+          <select className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500" onChange={(e) => setFilterStatus(e.target.value as any)} value={filterStatus}>
             <option value="all">Tous statuts</option>
             <option value="draft">Brouillon</option>
             <option value="pending">En attente</option>
             <option value="paid">Payée</option>
           </select>
-          <button className="rounded-2xl bg-neutral-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-neutral-800" onClick={() => refresh().catch(() => {})} type="button">
+          <button className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700" onClick={() => refresh().catch(() => {})} type="button">
             Rafraîchir
           </button>
         </div>
       </header>
-      {error ? <div className="rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">{error}</div> : null}
-      {info ? <div className="rounded-2xl border border-neutral-200 bg-white p-4 text-sm text-neutral-700">{info}</div> : null}
-      <div className="overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm">
+      {error ? <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">{error}</div> : null}
+      {info ? <div className="rounded-lg border border-slate-200 bg-white p-4 text-sm text-slate-700">{info}</div> : null}
+      <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
         <table className="w-full text-left text-sm">
-          <thead className="bg-neutral-50 text-neutral-700">
+          <thead className="bg-slate-50 text-slate-700">
             <tr>
               <th className="px-5 py-3 font-medium">N°</th>
               <th className="px-5 py-3 font-medium">Type</th>
@@ -298,12 +298,12 @@ export function InvoicesPage() {
           </thead>
           <tbody className="divide-y divide-neutral-200">
             {filtered.map((r) => (
-              <tr key={r.id} className="text-neutral-900">
+              <tr key={r.id} className="text-slate-900">
                 <td className="px-5 py-3 font-medium">{r.invoiceNumber}</td>
                 <td className="px-5 py-3">{labelType(r.docType)}</td>
                 <td className="px-5 py-3">
                   <div className="text-sm">{r.clientName || '—'}</div>
-                  <div className="text-xs text-neutral-500">{r.clientEmail || ''}</div>
+                  <div className="text-xs text-slate-400">{r.clientEmail || ''}</div>
                 </td>
                 <td className="px-5 py-3">
                   <div className="flex items-center gap-2">
@@ -311,7 +311,7 @@ export function InvoicesPage() {
                       {statusLabel(r.status)}
                     </span>
                     <select
-                      className="rounded-xl border border-neutral-200 bg-white px-2 py-1 text-xs outline-none focus:border-lime-400"
+                      className="rounded-xl border border-slate-200 bg-white px-2 py-1 text-xs outline-none focus:border-blue-500"
                       onChange={(e) => updateStatus(r.invoiceNumber, e.target.value as any)}
                       value={r.status}
                     >
@@ -321,15 +321,15 @@ export function InvoicesPage() {
                     </select>
                   </div>
                 </td>
-                <td className="px-5 py-3 text-xs text-neutral-600">{String(r.updatedAt || '').slice(0, 19).replace('T', ' ')}</td>
+                <td className="px-5 py-3 text-xs text-slate-500">{String(r.updatedAt || '').slice(0, 19).replace('T', ' ')}</td>
                 <td className="px-5 py-3 text-right">
-                  <button className="rounded-xl px-3 py-2 text-xs font-semibold text-neutral-900 transition hover:bg-neutral-100" onClick={() => openInvoice(r.invoiceNumber)} type="button">
+                  <button className="rounded-xl px-3 py-2 text-xs font-semibold text-slate-900 transition hover:bg-slate-100" onClick={() => openInvoice(r.invoiceNumber)} type="button">
                     Ouvrir
                   </button>
-                  <button className="rounded-xl px-3 py-2 text-xs font-semibold text-neutral-900 transition hover:bg-neutral-100" onClick={() => send(r.invoiceNumber)} type="button">
+                  <button className="rounded-xl px-3 py-2 text-xs font-semibold text-slate-900 transition hover:bg-slate-100" onClick={() => send(r.invoiceNumber)} type="button">
                     Envoyer
                   </button>
-                  <button className="rounded-xl px-3 py-2 text-xs font-semibold text-neutral-900 transition hover:bg-neutral-100" onClick={() => copyShareLink(r.invoiceNumber)} type="button">
+                  <button className="rounded-xl px-3 py-2 text-xs font-semibold text-slate-900 transition hover:bg-slate-100" onClick={() => copyShareLink(r.invoiceNumber)} type="button">
                     Lien
                   </button>
                   <button className="rounded-xl px-3 py-2 text-xs font-semibold text-red-700 transition hover:bg-red-50" onClick={() => remove(r.invoiceNumber)} type="button">
@@ -340,7 +340,7 @@ export function InvoicesPage() {
             ))}
             {!filtered.length ? (
               <tr>
-                <td className="px-5 py-6 text-sm text-neutral-600" colSpan={6}>
+                <td className="px-5 py-6 text-sm text-slate-500" colSpan={6}>
                   Aucun résultat.
                 </td>
               </tr>

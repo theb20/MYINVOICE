@@ -297,18 +297,18 @@ export function ClientsPage() {
   }
 
   return (
-    <div className="min-h-dvh w-full bg-neutral-50">
+    <div className="min-h-dvh w-full bg-slate-50">
       <div className="mx-auto w-full max-w-6xl px-6 py-10">
         <div className="flex flex-col gap-6">
-          <header className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+          <header className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <h1 className="text-2xl font-semibold tracking-tight text-neutral-900">Clients</h1>
-                <p className="mt-1 text-sm text-neutral-600">Gestion + lien sécurisé de collecte d’informations</p>
+                <h1 className="text-2xl font-semibold tracking-tight text-slate-900">Clients</h1>
+                <p className="mt-1 text-sm text-slate-500">Gestion + lien sécurisé de collecte d’informations</p>
               </div>
               {token ? (
                 <button
-                  className="rounded-2xl border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-900 transition hover:bg-neutral-50"
+                  className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-900 transition hover:bg-slate-50"
                   onClick={logout}
                   type="button"
                 >
@@ -319,24 +319,24 @@ export function ClientsPage() {
           </header>
 
           {!token ? (
-            <div className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
               {authMode === 'login' ? (
                 <form onSubmit={login}>
-                  <div className="text-sm font-semibold text-neutral-900">Connexion admin</div>
+                  <div className="text-sm font-semibold text-slate-900">Connexion admin</div>
                   <div className="mt-4 grid gap-4 sm:grid-cols-2">
                     <div>
-                      <label className="text-xs font-medium text-neutral-700">Email</label>
+                      <label className="text-xs font-medium text-slate-700">Email</label>
                       <input
-                        className="mt-1 w-full rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400"
+                        className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500"
                         onChange={(e) => setEmail(e.target.value)}
                         type="email"
                         value={email}
                       />
                     </div>
                     <div>
-                      <label className="text-xs font-medium text-neutral-700">Mot de passe</label>
+                      <label className="text-xs font-medium text-slate-700">Mot de passe</label>
                       <input
-                        className="mt-1 w-full rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400"
+                        className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500"
                         onChange={(e) => setPassword(e.target.value)}
                         type="password"
                         value={password}
@@ -345,7 +345,7 @@ export function ClientsPage() {
                   </div>
                   <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
                     <button
-                      className="text-xs font-medium text-neutral-600 underline underline-offset-4"
+                      className="text-xs font-medium text-slate-500 underline underline-offset-4"
                       onClick={() => {
                         setAuthMode('reset')
                         setError(null)
@@ -356,7 +356,7 @@ export function ClientsPage() {
                       Mot de passe oublié ?
                     </button>
                     <button
-                      className="rounded-2xl bg-lime-300 px-4 py-2 text-sm font-semibold text-neutral-900 transition hover:bg-lime-200 disabled:opacity-50"
+                      className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-50"
                       disabled={loading || !email || password.length < 8}
                       type="submit"
                     >
@@ -368,9 +368,9 @@ export function ClientsPage() {
               ) : (
                 <div>
                   <div className="flex items-center justify-between gap-3">
-                    <div className="text-sm font-semibold text-neutral-900">Reset password</div>
+                    <div className="text-sm font-semibold text-slate-900">Reset password</div>
                     <button
-                      className="text-xs font-medium text-neutral-600 underline underline-offset-4"
+                      className="text-xs font-medium text-slate-500 underline underline-offset-4"
                       onClick={() => {
                         setAuthMode('login')
                         setError(null)
@@ -384,16 +384,16 @@ export function ClientsPage() {
 
                   <form className="mt-4 grid gap-4" onSubmit={requestReset}>
                     <div>
-                      <label className="text-xs font-medium text-neutral-700">Email</label>
+                      <label className="text-xs font-medium text-slate-700">Email</label>
                       <input
-                        className="mt-1 w-full rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400"
+                        className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500"
                         onChange={(e) => setResetEmail(e.target.value)}
                         type="email"
                         value={resetEmail}
                       />
                     </div>
                     <button
-                      className="w-fit rounded-2xl bg-lime-300 px-4 py-2 text-sm font-semibold text-neutral-900 transition hover:bg-lime-200 disabled:opacity-50"
+                      className="w-fit rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-50"
                       disabled={loading || !resetEmail}
                       type="submit"
                     >
@@ -402,25 +402,25 @@ export function ClientsPage() {
                   </form>
 
                   {resetDone ? (
-                    <div className="mt-4 rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
-                      <div className="text-xs text-neutral-700">Token de reset (dev)</div>
+                    <div className="mt-4 rounded-lg border border-slate-200 bg-slate-50 p-4">
+                      <div className="text-xs text-slate-700">Token de reset (dev)</div>
                       <input
-                        className="mt-2 w-full rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm font-mono outline-none focus:border-lime-400"
+                        className="mt-2 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-mono outline-none focus:border-blue-500"
                         onChange={(e) => setResetToken(e.target.value)}
                         value={resetToken}
                       />
                       <form className="mt-3 grid gap-3 sm:grid-cols-2" onSubmit={confirmReset}>
                         <div className="sm:col-span-2">
-                          <label className="text-xs font-medium text-neutral-700">Nouveau mot de passe</label>
+                          <label className="text-xs font-medium text-slate-700">Nouveau mot de passe</label>
                           <input
-                            className="mt-1 w-full rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400"
+                            className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500"
                             onChange={(e) => setResetNewPassword(e.target.value)}
                             type="password"
                             value={resetNewPassword}
                           />
                         </div>
                         <button
-                          className="w-fit rounded-2xl bg-neutral-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-neutral-800 disabled:opacity-50"
+                          className="w-fit rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-50"
                           disabled={loading || resetNewPassword.length < 8 || resetToken.length < 10}
                           type="submit"
                         >
@@ -437,53 +437,53 @@ export function ClientsPage() {
           ) : (
             <div className="grid gap-4 lg:grid-cols-12">
               <div className="lg:col-span-4 flex flex-col gap-4">
-                <form className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm" onSubmit={createClient}>
+                <form className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm" onSubmit={createClient}>
                   <div className="flex items-center justify-between gap-3">
-                    <div className="text-sm font-semibold text-neutral-900">Créer un client</div>
+                    <div className="text-sm font-semibold text-slate-900">Créer un client</div>
                     <button
-                      className="rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-xs font-medium text-neutral-900 transition hover:bg-neutral-50"
+                      className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-900 transition hover:bg-slate-50"
                       onClick={() => load(token).catch(() => {})}
                       type="button"
                     >
                       Rafraîchir
                     </button>
                   </div>
-                  {info ? <div className="mt-2 text-sm text-neutral-700">{info}</div> : null}
+                  {info ? <div className="mt-2 text-sm text-slate-700">{info}</div> : null}
                   <div className="mt-4 grid gap-4">
                     <div>
-                      <label className="text-xs font-medium text-neutral-700">Société / Nom</label>
-                      <input className="mt-1 w-full rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400" onChange={(e) => setNewName(e.target.value)} value={newName} />
+                      <label className="text-xs font-medium text-slate-700">Société / Nom</label>
+                      <input className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500" onChange={(e) => setNewName(e.target.value)} value={newName} />
                     </div>
                     <div>
-                      <label className="text-xs font-medium text-neutral-700">Email (optionnel)</label>
-                      <input className="mt-1 w-full rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400" onChange={(e) => setNewEmail(e.target.value)} type="email" value={newEmail} />
+                      <label className="text-xs font-medium text-slate-700">Email (optionnel)</label>
+                      <input className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500" onChange={(e) => setNewEmail(e.target.value)} type="email" value={newEmail} />
                     </div>
-                    <button className="rounded-2xl bg-lime-300 px-4 py-2 text-sm font-semibold text-neutral-900 transition hover:bg-lime-200 disabled:opacity-50" disabled={loading || newName.trim().length < 2} type="submit">
+                    <button className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-50" disabled={loading || newName.trim().length < 2} type="submit">
                       Ajouter + envoyer lien
                     </button>
-                    <div className="text-xs text-neutral-500">
+                    <div className="text-xs text-slate-400">
                       Astuce: un client “complété” a rempli ses infos via le lien sécurisé.
                     </div>
                   </div>
                 </form>
 
-                <div className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
-                  <div className="text-sm font-semibold text-neutral-900">Filtres</div>
+                <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <div className="text-sm font-semibold text-slate-900">Filtres</div>
                   <div className="mt-4 grid gap-3">
-                    <input className="w-full rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400" onChange={(e) => setQuery(e.target.value)} placeholder="Rechercher nom, email, ville…" value={query} />
+                    <input className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500" onChange={(e) => setQuery(e.target.value)} placeholder="Rechercher nom, email, ville…" value={query} />
                     <div className="grid gap-3 sm:grid-cols-2">
-                      <select className="rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400" onChange={(e) => setFilterHasEmail(e.target.value as any)} value={filterHasEmail}>
+                      <select className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500" onChange={(e) => setFilterHasEmail(e.target.value as any)} value={filterHasEmail}>
                         <option value="all">Email: tous</option>
                         <option value="yes">Email: oui</option>
                         <option value="no">Email: non</option>
                       </select>
-                      <select className="rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400" onChange={(e) => setFilterCompleted(e.target.value as any)} value={filterCompleted}>
+                      <select className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500" onChange={(e) => setFilterCompleted(e.target.value as any)} value={filterCompleted}>
                         <option value="all">Statut: tous</option>
                         <option value="complete">Statut: complété</option>
                         <option value="incomplete">Statut: à compléter</option>
                       </select>
                     </div>
-                    <select className="rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400" onChange={(e) => setFilterCountry(e.target.value)} value={filterCountry}>
+                    <select className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500" onChange={(e) => setFilterCountry(e.target.value)} value={filterCountry}>
                       <option value="all">Pays: tous</option>
                       {countries.map((c) => (
                         <option key={c} value={c}>
@@ -492,23 +492,23 @@ export function ClientsPage() {
                       ))}
                     </select>
                     <div className="grid gap-2 sm:grid-cols-2">
-                      <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
-                        <div className="text-xs text-neutral-600">Clients</div>
-                        <div className="mt-1 text-base font-semibold text-neutral-900">{clients.length}</div>
+                      <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                        <div className="text-xs text-slate-500">Clients</div>
+                        <div className="mt-1 text-base font-semibold text-slate-900">{clients.length}</div>
                       </div>
-                      <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
-                        <div className="text-xs text-neutral-600">Résultats</div>
-                        <div className="mt-1 text-base font-semibold text-neutral-900">{filtered.length}</div>
+                      <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                        <div className="text-xs text-slate-500">Résultats</div>
+                        <div className="mt-1 text-base font-semibold text-slate-900">{filtered.length}</div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+                <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
                   <div className="flex items-center justify-between gap-3">
-                    <div className="text-sm font-semibold text-neutral-900">Édition</div>
+                    <div className="text-sm font-semibold text-slate-900">Édition</div>
                     {selectedId ? (
-                      <button className="text-xs font-medium text-neutral-600 underline underline-offset-4" onClick={() => { setSelectedId(''); setEdit(null) }} type="button">
+                      <button className="text-xs font-medium text-slate-500 underline underline-offset-4" onClick={() => { setSelectedId(''); setEdit(null) }} type="button">
                         Fermer
                       </button>
                     ) : null}
@@ -516,77 +516,77 @@ export function ClientsPage() {
                   {edit ? (
                     <div className="mt-4 grid gap-3">
                       <div className="grid gap-3 sm:grid-cols-2">
-                        <label className="grid gap-1 text-xs font-medium text-neutral-700">
+                        <label className="grid gap-1 text-xs font-medium text-slate-700">
                           Société / Nom
-                          <input className="rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400" onChange={(e) => setEdit((p) => (p ? { ...p, name: e.target.value } : p))} value={edit.name} />
+                          <input className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500" onChange={(e) => setEdit((p) => (p ? { ...p, name: e.target.value } : p))} value={edit.name} />
                         </label>
-                        <label className="grid gap-1 text-xs font-medium text-neutral-700">
+                        <label className="grid gap-1 text-xs font-medium text-slate-700">
                           Contact
-                          <input className="rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400" onChange={(e) => setEdit((p) => (p ? { ...p, contactName: e.target.value } : p))} value={edit.contactName} />
+                          <input className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500" onChange={(e) => setEdit((p) => (p ? { ...p, contactName: e.target.value } : p))} value={edit.contactName} />
                         </label>
                       </div>
                       <div className="grid gap-3 sm:grid-cols-2">
-                        <label className="grid gap-1 text-xs font-medium text-neutral-700">
+                        <label className="grid gap-1 text-xs font-medium text-slate-700">
                           Email
-                          <input className="rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400" onChange={(e) => setEdit((p) => (p ? { ...p, email: e.target.value } : p))} value={edit.email} />
+                          <input className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500" onChange={(e) => setEdit((p) => (p ? { ...p, email: e.target.value } : p))} value={edit.email} />
                         </label>
-                        <label className="grid gap-1 text-xs font-medium text-neutral-700">
+                        <label className="grid gap-1 text-xs font-medium text-slate-700">
                           Téléphone
-                          <input className="rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400" onChange={(e) => setEdit((p) => (p ? { ...p, phone: e.target.value } : p))} value={edit.phone} />
+                          <input className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500" onChange={(e) => setEdit((p) => (p ? { ...p, phone: e.target.value } : p))} value={edit.phone} />
                         </label>
                       </div>
-                      <label className="grid gap-1 text-xs font-medium text-neutral-700">
+                      <label className="grid gap-1 text-xs font-medium text-slate-700">
                         Adresse
-                        <input className="rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400" onChange={(e) => setEdit((p) => (p ? { ...p, address: e.target.value } : p))} value={edit.address} />
+                        <input className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500" onChange={(e) => setEdit((p) => (p ? { ...p, address: e.target.value } : p))} value={edit.address} />
                       </label>
                       <div className="grid gap-3 sm:grid-cols-2">
-                        <label className="grid gap-1 text-xs font-medium text-neutral-700">
+                        <label className="grid gap-1 text-xs font-medium text-slate-700">
                           Code postal
-                          <input className="rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400" onChange={(e) => setEdit((p) => (p ? { ...p, postalCode: e.target.value } : p))} value={edit.postalCode} />
+                          <input className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500" onChange={(e) => setEdit((p) => (p ? { ...p, postalCode: e.target.value } : p))} value={edit.postalCode} />
                         </label>
-                        <label className="grid gap-1 text-xs font-medium text-neutral-700">
+                        <label className="grid gap-1 text-xs font-medium text-slate-700">
                           Ville
-                          <input className="rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400" onChange={(e) => setEdit((p) => (p ? { ...p, city: e.target.value } : p))} value={edit.city} />
+                          <input className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500" onChange={(e) => setEdit((p) => (p ? { ...p, city: e.target.value } : p))} value={edit.city} />
                         </label>
                       </div>
                       <div className="grid gap-3 sm:grid-cols-2">
-                        <label className="grid gap-1 text-xs font-medium text-neutral-700">
+                        <label className="grid gap-1 text-xs font-medium text-slate-700">
                           Pays
-                          <input className="rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400" onChange={(e) => setEdit((p) => (p ? { ...p, country: e.target.value } : p))} value={edit.country} />
+                          <input className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500" onChange={(e) => setEdit((p) => (p ? { ...p, country: e.target.value } : p))} value={edit.country} />
                         </label>
-                        <label className="grid gap-1 text-xs font-medium text-neutral-700">
+                        <label className="grid gap-1 text-xs font-medium text-slate-700">
                           TVA
-                          <input className="rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400" onChange={(e) => setEdit((p) => (p ? { ...p, vatNumber: e.target.value } : p))} value={edit.vatNumber} />
+                          <input className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500" onChange={(e) => setEdit((p) => (p ? { ...p, vatNumber: e.target.value } : p))} value={edit.vatNumber} />
                         </label>
                       </div>
                       <div className="grid gap-3 sm:grid-cols-2">
-                        <label className="grid gap-1 text-xs font-medium text-neutral-700">
+                        <label className="grid gap-1 text-xs font-medium text-slate-700">
                           SIRET
-                          <input className="rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400" onChange={(e) => setEdit((p) => (p ? { ...p, siret: e.target.value } : p))} value={edit.siret} />
+                          <input className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500" onChange={(e) => setEdit((p) => (p ? { ...p, siret: e.target.value } : p))} value={edit.siret} />
                         </label>
                       </div>
-                      <button className="rounded-2xl bg-neutral-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-neutral-800 disabled:opacity-50" disabled={loading || edit.name.trim().length < 2} onClick={saveEdit} type="button">
+                      <button className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-50" disabled={loading || edit.name.trim().length < 2} onClick={saveEdit} type="button">
                         Enregistrer
                       </button>
                     </div>
                   ) : (
-                    <div className="mt-4 text-sm text-neutral-600">Sélectionne un client dans la liste.</div>
+                    <div className="mt-4 text-sm text-slate-500">Sélectionne un client dans la liste.</div>
                   )}
                 </div>
               </div>
 
-              <div className="lg:col-span-8 rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+              <div className="lg:col-span-8 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div className="text-sm font-semibold text-neutral-900">Liste clients</div>
-                  <div className="text-xs text-neutral-600">Tri: derniers modifiés</div>
+                  <div className="text-sm font-semibold text-slate-900">Liste clients</div>
+                  <div className="text-xs text-slate-500">Tri: derniers modifiés</div>
                 </div>
 
                 {error ? <div className="mt-4 text-sm text-red-600">{error}</div> : null}
-                {loading ? <div className="mt-4 text-sm text-neutral-600">Chargement…</div> : null}
+                {loading ? <div className="mt-4 text-sm text-slate-500">Chargement…</div> : null}
 
-                <div className="mt-4 overflow-hidden rounded-2xl border border-neutral-200">
+                <div className="mt-4 overflow-hidden rounded-lg border border-slate-200">
                   <table className="w-full text-left text-sm">
-                    <thead className="bg-neutral-50 text-neutral-700">
+                    <thead className="bg-slate-50 text-slate-700">
                       <tr>
                         <th className="px-4 py-3 font-medium">Client</th>
                         <th className="px-4 py-3 font-medium">Contact</th>
@@ -596,14 +596,14 @@ export function ClientsPage() {
                     </thead>
                     <tbody className="divide-y divide-neutral-200">
                       {filtered.map((c) => (
-                        <tr key={c.id} className={['text-neutral-900', selectedId === c.id ? 'bg-lime-50' : ''].join(' ')}>
+                        <tr key={c.id} className={['text-slate-900', selectedId === c.id ? 'bg-blue-50' : ''].join(' ')}>
                           <td className="px-4 py-3">
                             <div className="font-semibold">{c.name}</div>
-                            <div className="mt-1 text-xs text-neutral-500">{c.email || '—'}</div>
+                            <div className="mt-1 text-xs text-slate-400">{c.email || '—'}</div>
                           </td>
                           <td className="px-4 py-3">
                             <div className="text-sm">{c.contactName || '—'}</div>
-                            <div className="mt-1 text-xs text-neutral-500">{c.phone || ''}</div>
+                            <div className="mt-1 text-xs text-slate-400">{c.phone || ''}</div>
                           </td>
                           <td className="px-4 py-3">
                             <span
@@ -615,26 +615,26 @@ export function ClientsPage() {
                               {c.lastCompletedAt ? 'complété' : 'à compléter'}
                             </span>
                             {c.lastCompletedAt ? (
-                              <div className="mt-1 text-xs text-neutral-500">
+                              <div className="mt-1 text-xs text-slate-400">
                                 {new Date(c.lastCompletedAt).toLocaleDateString('fr-FR')}
                               </div>
                             ) : null}
                           </td>
                           <td className="px-4 py-3 text-right">
-                            <button className="rounded-xl px-3 py-2 text-xs font-semibold text-neutral-900 transition hover:bg-neutral-100" onClick={() => selectClient(c)} type="button">
+                            <button className="rounded-xl px-3 py-2 text-xs font-semibold text-slate-900 transition hover:bg-slate-100" onClick={() => selectClient(c)} type="button">
                               Modifier
                             </button>
-                            <button className="rounded-xl px-3 py-2 text-xs font-semibold text-neutral-900 transition hover:bg-neutral-100 disabled:opacity-50" disabled={loading} onClick={() => createInvite(c.id)} type="button">
+                            <button className="rounded-xl px-3 py-2 text-xs font-semibold text-slate-900 transition hover:bg-slate-100 disabled:opacity-50" disabled={loading} onClick={() => createInvite(c.id)} type="button">
                               Lien
                             </button>
-                            <button className="rounded-xl px-3 py-2 text-xs font-semibold text-neutral-900 transition hover:bg-neutral-100 disabled:opacity-50" disabled={loading || !inviteUrlByClientId[c.id]} onClick={() => copyInvite(c.id)} type="button">
+                            <button className="rounded-xl px-3 py-2 text-xs font-semibold text-slate-900 transition hover:bg-slate-100 disabled:opacity-50" disabled={loading || !inviteUrlByClientId[c.id]} onClick={() => copyInvite(c.id)} type="button">
                               Copier
                             </button>
                             <button className="rounded-xl px-3 py-2 text-xs font-semibold text-red-700 transition hover:bg-red-50 disabled:opacity-50" disabled={loading} onClick={() => removeClient(c.id)} type="button">
                               Suppr.
                             </button>
                             {inviteUrlByClientId[c.id] ? (
-                              <div className="mt-2 max-w-xs truncate text-right text-xs text-neutral-500">
+                              <div className="mt-2 max-w-xs truncate text-right text-xs text-slate-400">
                                 <span className="font-mono">{inviteUrlByClientId[c.id]}</span>
                               </div>
                             ) : null}
@@ -643,7 +643,7 @@ export function ClientsPage() {
                       ))}
                       {!filtered.length && !loading ? (
                         <tr>
-                          <td className="px-4 py-8 text-sm text-neutral-600" colSpan={5}>
+                          <td className="px-4 py-8 text-sm text-slate-500" colSpan={5}>
                             Aucun client.
                           </td>
                         </tr>

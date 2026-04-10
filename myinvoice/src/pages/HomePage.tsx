@@ -164,7 +164,7 @@ function Field({
 }
 
 const inputCls =
-  'mt-1 w-full rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-lime-400'
+  'mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500'
 const selectCls = inputCls
 
 // ─── Composant principal ──────────────────────────────────────────────────────
@@ -649,7 +649,7 @@ export function HomePage() {
   }
 
   return (
-    <div className="min-h-dvh w-full bg-neutral-50">
+    <div className="min-h-dvh w-full bg-slate-50">
       <div className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_circle_at_20%_20%,rgba(190,242,100,0.35),transparent_55%),radial-gradient(900px_circle_at_80%_0%,rgba(10,10,10,0.08),transparent_55%)]" />
         <div className="relative mx-auto w-full max-w-none px-6 py-10 md:px-10">
@@ -657,10 +657,10 @@ export function HomePage() {
             <div className="flex flex-col gap-6">
 
               {/* ── Header ── */}
-              <header className="animate-fade-in-up rounded-3xl border border-neutral-200 bg-white/80 p-6 shadow-sm backdrop-blur md:p-8">
+              <header className="animate-fade-in-up rounded-xl border border-slate-200 bg-white/80 p-6 shadow-sm backdrop-blur md:p-8">
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
-                    <div className="relative h-10 w-10 overflow-hidden p-1 rounded-xl bg-lime-200">
+                    <div className="relative h-10 w-10 overflow-hidden p-1 rounded-xl bg-blue-100">
                       <div className="absolute inset-0 animate-shimmer bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.55),transparent)]" />
                       <img alt="Logo" className="relative h-10 w-10 animate-float object-contain" src="/logo.png" />
                     </div>
@@ -670,10 +670,10 @@ export function HomePage() {
                     </div>
                   </div>
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="rounded-full bg-lime-300 px-3 py-1 text-xs font-semibold text-neutral-900">
+                    <span className="rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">
                       TVA {invoice.vatExempt ? '0%' : `${invoice.vatRate}%`}
                     </span>
-                    <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700">
+                    <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-neutral-700">
                       autosave navigateur
                     </span>
                   </div>
@@ -693,13 +693,13 @@ export function HomePage() {
                 <div className="grid gap-4 lg:grid-cols-12">
 
                   {/* ── 1. Émetteur ── */}
-                  <details className="group lg:col-span-6 rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+                  <details className="group lg:col-span-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-3 select-none">
                       <div className="flex flex-col">
                         <span className="text-sm font-semibold text-neutral-900">Émetteur</span>
                         <span className="text-xs text-neutral-500">Votre société / identité</span>
                       </div>
-                      <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700 transition group-open:bg-lime-200">ouvrir</span>
+                      <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-neutral-700 transition group-open:bg-blue-100">ouvrir</span>
                     </summary>
                     <div className="mt-5 grid gap-3 sm:grid-cols-2">
                       <Field label="Nom / Raison sociale" hint="*">
@@ -761,13 +761,13 @@ export function HomePage() {
                   </details>
 
                   {/* ── 2. Client ── */}
-                  <details className="group lg:col-span-6 rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+                  <details className="group lg:col-span-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-3 select-none">
                       <div className="flex flex-col">
                         <span className="text-sm font-semibold text-neutral-900">Client</span>
                         <span className="text-xs text-neutral-500">Destinataire de la facture</span>
                       </div>
-                      <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700 transition group-open:bg-lime-200">ouvrir</span>
+                      <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-neutral-700 transition group-open:bg-blue-100">ouvrir</span>
                     </summary>
                     <div className="mt-5 grid gap-3 sm:grid-cols-2">
                       <div className="sm:col-span-2">
@@ -837,13 +837,13 @@ export function HomePage() {
                   </details>
 
                   {/* ── 3. Informations de facture ── */}
-                  <details className="group lg:col-span-4 rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+                  <details className="group lg:col-span-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-3 select-none">
                       <div className="flex flex-col">
                         <span className="text-sm font-semibold text-neutral-900">Informations de facture</span>
                         <span className="text-xs text-neutral-500">Numéro, dates, statut, références</span>
                       </div>
-                      <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700 transition group-open:bg-lime-200">ouvrir</span>
+                      <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-neutral-700 transition group-open:bg-blue-100">ouvrir</span>
                     </summary>
                     <div className="mt-5 grid gap-3">
                       <div className="grid gap-3 sm:grid-cols-2">
@@ -868,7 +868,7 @@ export function HomePage() {
                         <div className="flex gap-2">
                           <input className={inputCls} readOnly value={draft.invoice.number} />
                           <button
-                            className="mt-1 shrink-0 rounded-2xl bg-lime-300 px-4 py-2 text-sm font-semibold text-neutral-900 transition hover:bg-lime-200 disabled:opacity-50"
+                            className="mt-1 shrink-0 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-50"
                             disabled={sending}
                             onClick={() => {
                               setSending(true)
@@ -949,13 +949,13 @@ export function HomePage() {
                   </details>
 
                   {/* ── 4. TVA & Remise ── */}
-                  <details className="group lg:col-span-4 rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+                  <details className="group lg:col-span-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-3 select-none">
                       <div className="flex flex-col">
                         <span className="text-sm font-semibold text-neutral-900">TVA & Remise</span>
                         <span className="text-xs text-neutral-500">Taux, exonération, escompte</span>
                       </div>
-                      <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700 transition group-open:bg-lime-200">ouvrir</span>
+                      <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-neutral-700 transition group-open:bg-blue-100">ouvrir</span>
                     </summary>
                     <div className="mt-5 grid gap-3 sm:grid-cols-2">
                       <Field label="Taux TVA par défaut (%)">
@@ -979,7 +979,7 @@ export function HomePage() {
                           <option value="CAD">CAD $</option>
                         </select>
                       </Field>
-                      <div className="sm:col-span-2 flex items-center gap-3 rounded-2xl border border-neutral-200 bg-neutral-50 p-3">
+                      <div className="sm:col-span-2 flex items-center gap-3 rounded-lg border border-slate-200 bg-slate-50 p-3">
                         <input
                           id="vatExempt"
                           type="checkbox"
@@ -1013,13 +1013,13 @@ export function HomePage() {
                   </details>
 
                   {/* ── 5. Pénalités de retard ── */}
-                  <details className="group lg:col-span-4 rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+                  <details className="group lg:col-span-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-3 select-none">
                       <div className="flex flex-col">
                         <span className="text-sm font-semibold text-neutral-900">Pénalités de retard</span>
                         <span className="text-xs text-neutral-500">Mentions légales obligatoires B2B</span>
                       </div>
-                      <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700 transition group-open:bg-lime-200">ouvrir</span>
+                      <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-neutral-700 transition group-open:bg-blue-100">ouvrir</span>
                     </summary>
                     <div className="mt-5 grid gap-3">
                       <Field label="Taux de pénalités" hint="(ex: 3× taux légal)">
@@ -1028,20 +1028,20 @@ export function HomePage() {
                       <Field label="Indemnité forfaitaire (€)" hint="40€ légal">
                         <input className={inputCls} type="number" min={0} value={invoice.lateFeeFlatRate} onChange={e => updInvoice({ lateFeeFlatRate: e.target.value })} placeholder="40" />
                       </Field>
-                      <div className="rounded-2xl bg-neutral-50 border border-neutral-200 p-3 text-xs text-neutral-500 leading-relaxed">
+                      <div className="rounded-lg bg-slate-50 border border-slate-200 p-3 text-xs text-neutral-500 leading-relaxed">
                         Mention automatique sur la facture : <em>"En cas de retard de paiement, des pénalités de {invoice.penaltyRate} seront appliquées, ainsi qu'une indemnité forfaitaire de {invoice.lateFeeFlatRate}€ pour frais de recouvrement."</em>
                       </div>
                     </div>
                   </details>
 
                   {/* ── 6. Produits / services ── */}
-                  <details className="group lg:col-span-8 rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm" open>
+                  <details className="group lg:col-span-8 rounded-xl border border-slate-200 bg-white p-6 shadow-sm" open>
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-3 select-none">
                       <div className="flex flex-col">
                         <span className="text-sm font-semibold text-neutral-900">Produits / services</span>
                         <span className="text-xs text-neutral-500">Sélection + quantités</span>
                       </div>
-                      <span className="rounded-full bg-lime-200 px-3 py-1 text-xs font-semibold text-neutral-900">
+                      <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-neutral-900">
                         net à payer {formatCurrency(totals.net, draft.currency)}
                       </span>
                     </summary>
@@ -1052,7 +1052,7 @@ export function HomePage() {
                         onChange={(items) => setDraft(p => ({ ...p, items }))}
                         serviceItems={serviceItems}
                       />
-                      <div className="rounded-3xl border border-neutral-200 bg-white p-4">
+                      <div className="rounded-xl border border-slate-200 bg-white p-4">
                         <div className="grid gap-3 sm:grid-cols-3">
                           <Field label="Acompte demandé (%)">
                             <input
@@ -1070,7 +1070,7 @@ export function HomePage() {
                             {depositPresets.map((p) => (
                               <button
                                 key={p}
-                                className="rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-xs font-medium text-neutral-900 transition hover:bg-neutral-50"
+                                className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-neutral-900 transition hover:bg-slate-50"
                                 onClick={() => updExtras({ depositPercent: p })}
                                 type="button"
                               >
@@ -1078,7 +1078,7 @@ export function HomePage() {
                               </button>
                             ))}
                             <button
-                              className="rounded-2xl bg-neutral-900 px-3 py-2 text-xs font-semibold text-white transition hover:bg-neutral-800"
+                              className="rounded-lg bg-blue-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-blue-700"
                               onClick={() => {
                                 const next = Number(extras.depositPercent || 0)
                                 if (!Number.isFinite(next) || next <= 0 || next > 100) return
@@ -1091,7 +1091,7 @@ export function HomePage() {
                               + Ajouter
                             </button>
                             <button
-                              className="rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-xs font-medium text-neutral-900 transition hover:bg-neutral-50"
+                              className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-neutral-900 transition hover:bg-slate-50"
                               onClick={() => setDepositPresets([])}
                               type="button"
                             >
@@ -1101,13 +1101,13 @@ export function HomePage() {
                         </div>
                         {extras.depositPercent > 0 ? (
                           <div className="mt-3 grid gap-2 sm:grid-cols-2">
-                            <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
+                            <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
                               <div className="text-xs text-neutral-600">Acompte à payer</div>
                               <div className="mt-1 text-base font-semibold text-neutral-900">
                                 {formatCurrency((totals.net * extras.depositPercent) / 100, draft.currency)}
                               </div>
                             </div>
-                            <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
+                            <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
                               <div className="text-xs text-neutral-600">Solde restant</div>
                               <div className="mt-1 text-base font-semibold text-neutral-900">
                                 {formatCurrency(totals.net - (totals.net * extras.depositPercent) / 100, draft.currency)}
@@ -1118,35 +1118,35 @@ export function HomePage() {
                       </div>
                       {/* Totaux détaillés */}
                       <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-                        <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
+                        <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
                           <div className="text-xs text-neutral-600">Total HT brut</div>
                           <div className="mt-1 text-base font-semibold text-neutral-900">{formatCurrency(totals.totalHt, draft.currency)}</div>
                         </div>
                         {totals.remise > 0 && (
-                          <div className="rounded-2xl border border-lime-200 bg-lime-50 p-4">
+                          <div className="rounded-lg border border-lime-200 bg-blue-50 p-4">
                             <div className="text-xs text-neutral-600">Remise</div>
                             <div className="mt-1 text-base font-semibold text-neutral-900">− {formatCurrency(totals.remise, draft.currency)}</div>
                           </div>
                         )}
-                        <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
+                        <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
                           <div className="text-xs text-neutral-600">Total HT net</div>
                           <div className="mt-1 text-base font-semibold text-neutral-900">{formatCurrency(totals.htAfterDiscount, draft.currency)}</div>
                         </div>
-                        <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
+                        <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
                           <div className="text-xs text-neutral-600">TVA ({invoice.vatExempt ? '0%' : `${invoice.vatRate}%`})</div>
                           <div className="mt-1 text-base font-semibold text-neutral-900">{formatCurrency(totals.vatAmount, draft.currency)}</div>
                         </div>
-                        <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
+                        <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
                           <div className="text-xs text-neutral-600">Total TTC</div>
                           <div className="mt-1 text-base font-semibold text-neutral-900">{formatCurrency(totals.ttc, draft.currency)}</div>
                         </div>
                         {invoice.deposit > 0 && (
-                          <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-4">
+                          <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
                             <div className="text-xs text-neutral-600">Acompte versé</div>
                             <div className="mt-1 text-base font-semibold text-neutral-900">− {formatCurrency(invoice.deposit, draft.currency)}</div>
                           </div>
                         )}
-                        <div className="rounded-2xl border border-neutral-200 bg-neutral-900 p-4">
+                        <div className="rounded-lg border border-slate-200 bg-blue-600 p-4">
                           <div className="text-xs text-neutral-300">Net à payer</div>
                           <div className="mt-1 text-lg font-semibold text-white">{formatCurrency(totals.net, draft.currency)}</div>
                         </div>
@@ -1155,13 +1155,13 @@ export function HomePage() {
                   </details>
 
                   {/* ── 7. Paiement ── */}
-                  <details className="group lg:col-span-4 rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+                  <details className="group lg:col-span-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-3 select-none">
                       <div className="flex flex-col">
                         <span className="text-sm font-semibold text-neutral-900">Paiement</span>
                         <span className="text-xs text-neutral-500">Méthode, IBAN, BIC, PayPal</span>
                       </div>
-                      <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700 transition group-open:bg-lime-200">ouvrir</span>
+                      <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-neutral-700 transition group-open:bg-blue-100">ouvrir</span>
                     </summary>
                     <div className="mt-5 grid gap-3 sm:grid-cols-2">
                       <Field label="Méthode">
@@ -1208,7 +1208,7 @@ export function HomePage() {
                             <div className="flex gap-2">
                               <input className={inputCls} value={payment.stripeLink} onChange={e => updPayment({ stripeLink: e.target.value })} placeholder="https://checkout.stripe.com/..." />
                               <button
-                                className="mt-1 shrink-0 rounded-2xl bg-lime-300 px-4 py-2 text-sm font-semibold text-neutral-900 transition hover:bg-lime-200 disabled:opacity-50"
+                                className="mt-1 shrink-0 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-50"
                                 disabled={sending}
                                 onClick={generateStripeLink}
                                 type="button"
@@ -1225,7 +1225,7 @@ export function HomePage() {
                             <div className="flex gap-2">
                               <input className={inputCls} value={payment.revolutLink} onChange={e => updPayment({ revolutLink: e.target.value })} placeholder="https://checkout.revolut.com/..." />
                               <button
-                                className="mt-1 shrink-0 rounded-2xl bg-lime-300 px-4 py-2 text-sm font-semibold text-neutral-900 transition hover:bg-lime-200 disabled:opacity-50"
+                                className="mt-1 shrink-0 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-50"
                                 disabled={sending}
                                 onClick={generateRevolutLink}
                                 type="button"
@@ -1240,13 +1240,13 @@ export function HomePage() {
                   </details>
 
                   {/* ── 8. Envoi & livraison ── */}
-                  <details className="group lg:col-span-6 rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+                  <details className="group lg:col-span-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-3 select-none">
                       <div className="flex flex-col">
                         <span className="text-sm font-semibold text-neutral-900">Envoi & livraison</span>
                         <span className="text-xs text-neutral-500">Mode d'envoi, récurrence, CC</span>
                       </div>
-                      <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700 transition group-open:bg-lime-200">ouvrir</span>
+                      <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-neutral-700 transition group-open:bg-blue-100">ouvrir</span>
                     </summary>
                     <div className="mt-5 grid gap-3 sm:grid-cols-2">
                       <Field label="Mode de transmission">
@@ -1262,7 +1262,7 @@ export function HomePage() {
                           <input className={inputCls} value={extras.ccEmails} onChange={e => updExtras({ ccEmails: e.target.value })} placeholder="direction@acme.fr, legal@acme.fr" />
                         </Field>
                       </div>
-                      <div className="sm:col-span-2 flex items-center gap-3 rounded-2xl border border-neutral-200 bg-neutral-50 p-3">
+                      <div className="sm:col-span-2 flex items-center gap-3 rounded-lg border border-slate-200 bg-slate-50 p-3">
                         <input
                           id="recurring"
                           type="checkbox"
@@ -1285,13 +1285,13 @@ export function HomePage() {
                   </details>
 
                   {/* ── 9. Informations complémentaires ── */}
-                  <details className="group lg:col-span-6 rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+                  <details className="group lg:col-span-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-3 select-none">
                       <div className="flex flex-col">
                         <span className="text-sm font-semibold text-neutral-900">Informations complémentaires</span>
                         <span className="text-xs text-neutral-500">Notes, conditions générales, pièce jointe</span>
                       </div>
-                      <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700 transition group-open:bg-lime-200">ouvrir</span>
+                      <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-neutral-700 transition group-open:bg-blue-100">ouvrir</span>
                     </summary>
                     <div className="mt-5 grid gap-3">
                       <Field label="Notes visibles sur la facture">
@@ -1369,26 +1369,26 @@ export function HomePage() {
                   </details>
 
                   {/* ── Footer actions ── */}
-                  <div className="lg:col-span-12 flex flex-wrap items-center justify-between gap-3 rounded-3xl border border-neutral-200 bg-white p-4 shadow-sm">
+                  <div className="lg:col-span-12 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
                     <div className="text-xs text-neutral-600">
                       Client automatique · Visible sur la facture uniquement en brouillon
                     </div>
                     {sendMessage ? <div className="text-xs text-neutral-700">{sendMessage}</div> : null}
                     <div className="flex flex-wrap items-center gap-2">
                       <Link
-                        className="rounded-2xl border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-900 transition hover:bg-neutral-50"
+                        className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-neutral-900 transition hover:bg-slate-50"
                         to="/invoice"
                       >
                         Voir la facture
                       </Link>
                       <button
-                        className="rounded-2xl bg-lime-300 px-4 py-2 text-sm font-semibold text-neutral-900 transition hover:bg-lime-200"
+                        className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700"
                         type="submit"
                       >
                         Ouvrir facture + PDF
                       </button>
                       <button
-                        className="rounded-2xl border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-900 transition hover:bg-neutral-50"
+                        className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-neutral-900 transition hover:bg-slate-50"
                         disabled={sending}
                         onClick={sendInvoice}
                         type="button"
