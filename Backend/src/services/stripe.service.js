@@ -34,7 +34,7 @@ export async function createCheckoutSession(ctx, { invoiceNumber, amountMajor, c
       headers: {
         Authorization: `Bearer ${env.STRIPE_SECRET_KEY}`,
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Idempotency-Key': `${invoiceNumber}:${amount}:${currency}`,
+        'Idempotency-Key': `${invoiceNumber}:${amount}:${currency}:${Date.now()}`,
         'X-Request-Id': requestId,
       },
       timeout: 20_000,
