@@ -17,6 +17,10 @@ export async function createCheckoutSession(ctx, { invoiceNumber, amountMajor, c
   const amount = minorUnits(Number(amountMajor || 0), currency)
   if (!Number.isFinite(amount) || amount <= 0) throw new ApiError(400, 'Invalid amount')
 
+  const zeroDecimalCurrency = new Set(['JPY', 'KRW', 'VND'])
+  const minAmount = zeroDecimalCurrency.has(String(currency).toUpperCase()) ? 1 : 50
+  if (amount < minAmount) throw new ApiError(400, `Amount too small — minimum is ${minAmount} ${String(currency).toUpperCase()} (in minor units)`)
+
   const params = new URLSearchParams()
   params.set('mode', 'payment')
   params.set('success_url', successUrl)
@@ -47,6 +51,7 @@ export async function createCheckoutSession(ctx, { invoiceNumber, amountMajor, c
     const status = e?.response?.status
     const data = e?.response?.data
     logError('stripe_checkout_failed', { requestId, invoiceNumber, status, data, error: e instanceof Error ? e.message : String(e) })
+    if (status === 400 && data?.error?.message) throw new ApiError(400, data.error.message)
     throw new ApiError(502, 'Stripe checkout failed')
   }
 }
